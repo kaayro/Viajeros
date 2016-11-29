@@ -8,11 +8,8 @@ var user = {
 		var date = $("#rbdate").val();
 		
 		if(name =! undefined && name != '' && mail != undefined && mail != '' && pass != undefined && pass != '' && coun != undefined && coun != '' && lang != undefined && lang != '' && date != undefined && date != ''){
-			$.post('http://tourindigital.com/app/registro.app.php', {action:'setNewUser',name:name,mail:mail,pass:pass,country:coun,languages:lang,bdate:date}, function(msg){
-			alert(msg);
-		}, function(e){
-			alert("error");
-		});
+			var data = { action:'setNewUser' };//,name:name,mail:mail,pass:pass,country:coun,languages:lang,bdate:date};
+			app.ajax('http://tourindigital.com/app/registro.app.php',data);
 		}else
 			alert("Todos los campos son requeridos");
 	}
