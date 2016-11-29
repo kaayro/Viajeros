@@ -18,6 +18,9 @@ var app = {
 			data: JSON.stringify(data),
 			success: function(msg){
 				alert(msg);
+			},
+			error: function(e){
+				alert(e);
 			}
 		});
 	},
