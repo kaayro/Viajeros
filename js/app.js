@@ -11,7 +11,7 @@ var app = {
 		$(document).on('tap','#rsend',user.setNew);
 	},
 	ajax: function(url, data){
-		$.ajax({
+		/*$.ajax({
 			type: 'POST',
 			url: url,
 			// post payload:
@@ -22,6 +22,9 @@ var app = {
 			error: function(e){
 				alert(e);
 			}
+		});*/
+		$.post(url, { action: 'payload' }, function(msg){
+			alert(msg);
 		});
 	},
 	search: function(){

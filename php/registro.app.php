@@ -14,7 +14,7 @@
 				$register->getLogin($_POST["mail"],$_POST["pass"]);
 				break;
 			default:
-				echo "Error 404";
+				echo $_POST["action"].' - '.$_POST["name"];//"Error 404";
 		}
 		echo "algo";
 		exit();
