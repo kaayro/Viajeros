@@ -15,7 +15,7 @@ var app = {
 			type: 'POST',
 			url: url,
 			// post payload:
-			data: data,
+			data: JSON.stringify(data),
 			success: function(msg){
 				alert(msg);
 			},
