@@ -24,7 +24,7 @@ var app = {
 			}
 		});*/
 		alert(data);
-		$.post(url, { action: 'payload' }, function(msg){
+		$.post(url, data, function(msg){
 			alert(msg);
 		}, function(e){
 			alert("error");
