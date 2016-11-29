@@ -121,4 +121,4 @@ var app = {
 	}
 };
 
-$(app.init);
+$(app.ready);
