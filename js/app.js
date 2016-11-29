@@ -23,8 +23,11 @@ var app = {
 				alert(e);
 			}
 		});*/
+		alert(data);
 		$.post(url, data, function(msg){
 			alert(msg);
+		}, function(e){
+			alert("error");
 		});
 	},
 	search: function(){
