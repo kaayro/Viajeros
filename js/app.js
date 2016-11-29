@@ -118,4 +118,4 @@ var app = {
 	}
 };
 
-$(app.ready);
+$(app.init);
