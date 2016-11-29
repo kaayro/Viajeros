@@ -16,7 +16,7 @@
 			default:
 				echo "Error 404";
 		}
-		
+		echo "algo";
 		exit();
 	}else{
 		echo "Error 404";	
