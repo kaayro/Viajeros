@@ -1,0 +1,498 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>TourIn' &beta;</title>
+        <link rel="stylesheet" href="css/vanilla.min.css" data-jqt-theme>
+		<link rel="stylesheet" href="css/app.css">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <!-- Either, (1) Zepto:  Un-comment these 2 lines (order matters)  -->
+        <script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/jqt.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/user.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Or,     (2) jQuery: Un-comment these 3 lines (order matters)  -->
+        <!-- <script src="../../lib/jquery/jquery-1.7.min.js" type="application/x-javascript" charset="utf-8"></script> -->
+        <!-- <script src="../../src/jqt.min.js" type="text/javascript" charset="utf-8"></script> -->
+        <!-- <script src="../../src/jqtouch-jquery.min.js" type="application/x-javascript" charset="utf-8"></script> -->
+
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQT({
+                icon: 'jqtouch.png',
+                icon4: 'jqtouch4.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                statusBar: 'black-translucent',
+                preloadImages: []
+            });
+        </script>
+        <style type="text/css" media="screen">
+            #jqt.fullscreen #home .info {
+                display: none;
+            }
+            div#jqt #about {
+                padding: 100px 10px 40px;
+                text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0;
+                color: #999;
+                font-size: 13px;
+                text-align: center;
+                background: #161618;
+            }
+            div#jqt #about p {
+                margin-bottom: 8px;
+            }
+            div#jqt #about a {
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="jqt" class="">
+            <div id="home" class="current">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+                </div>
+                <div class="scroll">
+					
+					
+					<ul class="edit" id="loginbox" style="">
+                        <li><input type="email" name="name" placeholder="Correo Electrónico" id="some_name"></li>
+						<li><input type="password" name="name" placeholder="Contraseña" id="some_name"></li>
+						<li><a href="#profile" style="text-align:center;font:bold 12pt Arial;background:#ff9900;color:#000;">Entrar</a></li>
+						<li><a href="#register" style="text-align:center;font:bold 12pt Arial;background:#555;color:#fff;" class="slideup">Únete Grátis</a></li>
+                    </ul>
+                </div>
+            </div>
+			<div id="register">
+                <div class="toolbar">
+                    <h1>Registro</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <div class="scroll">
+					<ul class="edit" style="">
+						<li><input type="text" name="rname" placeholder="Nombre" id="rname"></li>
+                        <li><input type="email" name="rmail" placeholder="Correo Electrónico" id="rmail"></li>
+						<li><input type="password" name="rpass" placeholder="Contraseña" id="rpass"></li>
+						<li>
+							<select id="rcountry">
+								<option value="">País</option>
+								<option value="1">Afganistán</option>
+								<option value="2">Africa del Sur</option>
+								<option value="3">Albania</option>
+								<option value="4">Alemania</option>
+								<option value="5">Andorra</option>
+								<option value="6">Angola</option>
+								<option value="7">Antigua y Barbuda</option>
+								<option value="8">Antillas Holandesas</option>
+								<option value="9">Arabia Saudita</option>
+								<option value="10">Argelia</option>
+								<option value="11">Argentina</option>
+								<option value="12">Armenia</option>
+								<option value="13">Aruba</option>
+								<option value="14">Australia</option>
+								<option value="15">Austria</option>
+								<option value="16">Azerbaijan</option>
+								<option value="17">Bahamas</option>
+								<option value="18">Bahrain</option>
+								<option value="19">Bangladesh</option>
+								<option value="20">Barbados</option>
+								<option value="21">Belarusia</option>
+								<option value="22">Belgica</option>
+								<option value="23">Belice</option>
+								<option value="24">Benin</option>
+								<option value="25">Bermudas</option>
+								<option value="26">Bolivia</option>
+								<option value="27">Bosnia</option>
+								<option value="28">Botswana</option>
+								<option value="29">Brasil</option>
+								<option value="30">Brunei Darussulam</option>
+								<option value="31">Bulgaria</option>
+								<option value="32">Burkina Faso</option>
+								<option value="33">Burundi</option>
+								<option value="34">Butan</option>
+								<option value="35">Camboya</option>
+								<option value="36">Camerun</option>
+								<option value="37">Canada</option>
+								<option value="38">Cape Verde</option>
+								<option value="39">Chad</li>
+								<option value="40">Chile</li>
+								<option value="41">China</li>
+								<option value="42">Chipre</li>
+								<option value="43">Colombia</option>
+								<option value="44">Comoros</option>
+								<option value="45">Congo</option>
+								<option value="46">Corea del Norte</option>
+								<option value="47">Corea del Sur</option>
+								<option value="48">Costa de Marfíl</option>
+								<option value="49">Costa Rica</option>
+								<option value="50">Croasia</option>
+								<option value="51">Cuba</option>
+								<option value="52">Dinamarca</option>
+								<option value="53">Djibouti</option>
+								<option value="54">Dominica</option>
+								<option value="55">Ecuador</option>
+								<option value="56">Egipto</option>
+								<option value="57">El Salvador</option>
+								<option value="58">Emiratos Arabes Unidos</option>
+								<option value="59">Eritrea</option>
+								<option value="60">Eslovenia</option>
+								<option value="61">España</option>
+								<option value="62">Estados Unidos</option>
+								<option value="63">Estonia</option>
+								<option value="64">Etiopia</option>
+								<option value="65">Fiji</option>
+								<option value="66">Filipinas</option>
+								<option value="67">Finlandia</a></option>
+								<option value="68">Francia</option>
+								<option value="69">Gabon</option>
+								<option value="70">Gambia</option>
+								<option value="71">Georgia</option>
+								<option value="72">Ghana</option>
+								<option value="73">Granada</option>
+								<option value="74">Grecia</option>
+								<option value="75">Groenlandia</option>
+								<option value="76">Guadalupe</option>
+								<option value="77">Guam</option>
+								<option value="78">Guatemala</option>
+								<option value="79">Guayana Francesa</option>
+								<option value="80">Guerney</option>
+								<option value="81">Guinea</option>
+								<option value="82">Guinea-Bissau</option>
+								<option value="83">Guinea Equatorial</option>
+								<option value="84">Guyana</option>
+
+								<option value="85">Haití</option>
+								<option value="86">Holanda</option>
+								<option value="87">Honduras</option>
+								<option value="88">Hong Kong</option>
+								<option value="89">Hungria</option>
+								<option value="90">India</option>
+								<option value="91">Indonesia</option>
+								<option value="92">Irak</option>
+								<option value="93">Iran</option>
+								<option value="94">Irlanda</option>
+								<option value="95">Islandia</option>
+								<option value="96">Islas Caiman</option>
+								<option value="97">Islas Faroe</option>
+								<option value="98">Islas Malvinas</option>
+								<option value="99">Islas Marshall</option>
+								<option value="100">Islas Solomon</option>
+								<option value="101">Islas Virgenes Britanicas</option>
+								<option value="102">Islas Virgenes (U.S.)</option>
+								<option value="103">Israel</option>
+								<option value="104">Italia</option>
+								<option value="105">Jamaica</option>
+								<option value="106">Japon</option>
+								<option value="107">Jersey</option>
+								<option value="108">Jordania</option>
+								<option value="109">Kazakhstan</option>
+								<option value="110">Kenia</option>
+								<option value="111">Kiribati</option>
+								<option value="112">Kuwait</option>
+								<option value="113">Kyrgyzstan</option>
+								<option value="114">Laos</option>
+								<option value="115">Latvia</option>
+								<option value="116">Lesotho</option>
+								<option value="117">Libano</option>
+								<option value="118">Liberia</option>
+								<option value="119">Libia</option>
+								<option value="120">Liechtenstein</option>
+								<option value="121">Lituania</option>
+								<option value="122">Luxemburgo</option>
+								<option value="123">Macao</option>
+								<option value="124">Macedonia</option>
+								<option value="125">Madagascar</option>
+								<option value="126">Malasia</option>
+								<option value="127">Malawi</option>
+								<option value="128">Maldivas</option>
+								<option value="129">Mali</option>
+								<option value="130">Malta</option>
+								<option value="131">Marruecos</option>
+								<option value="132">Martinica</option>
+								<option value="133">Mauricio</option>
+								<option value="134">Mauritania</option>
+								<option value="135">México</option>
+<li>Micronesia</li>
+<li>Moldova</li>
+<li>Monaco</li>
+<li>Mongolia</li>
+<li>Mozambique</li>
+<li>Myanmar (Burma)</li>
+<li>Namibia</li>
+<li>Nepal</li>
+<li>Nicaragua</li>
+<li>Niger</li>
+<li>Nigeria</li>
+<li>Noruega</li>
+<li>Nueva Caledonia</li>
+<li>Nueva Zealandia</li>
+<li><a href="mediorient.htm#om"><font size="-1" face="Arial">Oman</font></a></li>
+<li><a href="asia.htm#pk"><font size="-1" face="Arial">Pakistan</font></a></li>
+<li><a href="mediorient.htm#pl"><font size="-1" face="Arial">Palestina</font></a></li>
+<li><a href="central.htm#pa"><font size="-1" face="Arial">Panama</font></a></li>
+<li>Papua Nueva Guinea</li>
+<li><a href="sur.htm#py"><font size="-1" face="Arial">Paraguay</font></a></li>
+<li><a href="sur.htm#pe"><font size="-1" face="Arial">Peru</font></a></li>
+<li><a href="pacific.htm#pf"><font size="-1" face="Arial">Polinesia Francesa</font></a></li>
+<li><a href="europa.htm#pl"><font size="-1" face="Arial">Polonia</font></a></li>
+<li><a href="europa.htm#pt"><font size="-1" face="Arial">Portugal</font></a></li>
+<li><a href="caribe.htm#pr"><font size="-1" face="Arial">Puerto Rico</font></a></li>
+<li><a href="mediorient.htm#qa"><font size="-1" face="Arial">Qatar</font></a></li>
+<li>Reino Unido</li>
+<li>Republica Centroafricana</li>
+<li>Republica Checa</li>
+<li>Republica Democratica del Congo</li>
+<li>Republica Dominicana</li>
+<li>Republica Eslovaca</li>
+<li>Reunion</li>
+<li>Ruanda</li>
+<li>Rumania</li>
+<li>Rusia</li>
+<li>Sahara</li>
+<li>Samoa</li>
+<li>San Cristobal-Nevis (St. Kitts)</li>
+<li>San Marino</li>
+<li>San Vincente y las Granadinas</li>
+<li>Santa Helena</li>
+<li>Santa Lucia</li>
+<li>Santa Sede (Vaticano)</li>
+<li>Sao Tome Principe</li>
+<li>Senegal</li>
+<li>Seychelles</li>
+<li>Sierra Leona</li>
+<li>Singapur</li>
+<li>Siria</li>
+<li>Somalia</li>
+<li>Sri Lanka (Ceilan)</li>
+<li>Sudan</li>
+<li>Sudan del Sur</li>
+<li>Suecia</li>
+<li>Suiza</li>
+<li>Sur Africa</li>
+<li>Surinam</li>
+<li>Swaziland</li>
+<li>Tailandia</li>
+<li>Taiwan</li>
+<li>Tajikistan</li>
+<li>Tanzania</li>
+<li>Timor Oriental</li>
+<li>Togo</li>
+<li>Tokelau</li>
+<li>Tonga</li>
+<li>Trinidad Tobago</li>
+<li>Tunisia</li>
+<li>Turkmenistan</li>
+<li>Turquia</li>
+<li>Ucrania</li>
+<li>Uganda</li>
+<li>Union Europea</li>
+<li>Uruguay</li>
+<li>Uzbekistan</li>
+<li>Vanuatu</li>
+<li>Venezuela</li>
+<li>Vietnam</li>
+<li>Yemen</li>
+<li>Zambia</li>
+<li>Zimbabwe</li>
+							</select>
+						</li>
+						<li><input type="text" name="rlang" placeholder="Idiomas" id="rlang"></li>
+						<li>Fecha de Nacimiento: <input type="date" name="rbdate" id="rbdate"></li>
+						<li><a href="#" id="rsend" style="text-align:center;font:bold 12pt Arial;background:#fff;color:#000;">Registrarme</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="profile">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+                </div>
+                <div class="scroll">
+					<div class="ti-profile-header" style="box-sizing:border-box;width:100%;margin-top:20px;">
+						<img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/11991_10153562018259550_5250468990927329918_n.jpg?oh=c80548cec1db844b0952a98cf936d7f1&oe=57FB7DF7" style="width:100px;height:100px;float:left;margin-left:15px;margin-top:20px;">
+						<h3 style="padding-top:50px;text-align:center;">Bienvenido</h3>
+						<input type="text" placeholder="Tu nombre" value="Carlos Celma" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:60%;">
+						<div style="clear:both;"></div>
+					</div>
+                    <div class="ti-search" style="margin-top:50px;">
+						<ul class="individual">
+							<li><a href="#category">Buscar</a></li>
+							<li><a href="#booking">Reservar</a></li>
+						</ul>
+					</div>
+					<div class="ti-profile-data" style="margin-top:50px;">
+						<div><input type="text" value="Mexico" placeholder="¿De dónde eres?" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:100%;"></div>
+						<div><input type="text" value="Español,Inglés" placeholder="¿Qué idiomas hablas?" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:100%;"></div>
+					</div>
+					<div class="ti-profile-credit-data">
+						<a href="#paytype" class="slideup">Formas de pago</a>
+					</div>
+                </div>
+            </div>
+			<div id="booking">
+                <div class="toolbar">
+                    <h1>Reservar</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <form class="scroll">
+					<ul class="edit rounded" style="">
+                        <li><input type="date" name="date_book" placeholder="Fecha" id="date_book"></li>
+						<li><input type="time" name="hour_book" placeholder="Hora" id="hour_book"></li>
+						<li class="arrow"><select id="place_book">
+								<option value="">Lugar</option>
+								<option value="1">Cholula</option>
+								<option value="2">Puebla</option>
+								<option value="3">Tlaxcala</option>
+							</select></li>
+						<li><a href="#category" style="text-align:center;font:bold 12pt Arial;background:#ff9900;color:#000;">Reservar</a></li>
+                    </ul>
+                </form>
+            </div>
+			<div id="category">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <div class="scroll">
+					<div class="ti-category-row">
+						<div class="ti-category-col-2">
+							<a href="#" class="icon color-purple" rel="tour1"><img src="img/antique-building.svg"></a>
+							<a href="#tour1" class="info color-purple slideup">Vida en la ciudad</a>
+						</div>
+						<div class="ti-category-col-2">
+							<a href="#" class="icon color-green" rel="tour2"><img src="img/photo-camera.svg"></a>
+							<a href="#tour2" class="info color-green slideup">Postales de la ciudad</a>
+						</div>
+					</div>
+					<div class="ti-category-row">
+						<div class="ti-category-col-2">
+							<a href="#" class="icon color-gold" rel="tour3"><img src="img/shopping-cart.svg"></a>
+							<a href="#tour3" class="info color-gold slideup">Recuerdos de la ciudad</a>
+						</div>
+						<div class="ti-category-col-2">
+							<a href="#" class="icon color-blue" rel="tour4"><img src="img/entertaining-park-wheel.svg"></a>
+							<a href="#tour4" class="info color-blue slideup">Entretenimiento</a>
+						</div>
+					</div>
+                </div>
+            </div>
+			<div id="tour1">
+                <div class="toolbar">
+                    <h3>Vida en la ciudad</h3>
+                </div>
+                <div class="scroll">
+					<p>Con esta frase queremos englobar la experiencia de conocer los aspectos culturales, históricos y tradicionales de una ciudad.</p>
+					<p>Un poco de... </p>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#" class="whiteButton goback">Volver a buscar</a>
+                </div>
+            </div>
+			<div id="tour2">
+                <div class="toolbar">
+                    <h3>Postales de la ciudad</h3>
+                </div>
+                <div class="scroll">
+					<p>Con esta frase queremos englobar la experiencia de conocer los aspectos culturales, históricos y tradicionales de una ciudad.</p>
+					<p>Un poco de... </p>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#" class="whiteButton goback">Volver a buscar</a>
+                </div>
+            </div>
+			<div id="tour3">
+                <div class="toolbar">
+                    <h3>Recuerdos de la ciudad</h3>
+                </div>
+                <div class="scroll">
+					<p>Con esta frase queremos englobar la experiencia de conocer los aspectos culturales, históricos y tradicionales de una ciudad.</p>
+					<p>Un poco de... </p>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#" class="whiteButton goback">Volver a buscar</a>
+                </div>
+            </div>
+			<div id="tour4">
+                <div class="toolbar">
+                    <h3>Entretenimiento</h3>
+                </div>
+                <div class="scroll">
+					<p>Con esta frase queremos englobar la experiencia de conocer los aspectos culturales, históricos y tradicionales de una ciudad.</p>
+					<p>Un poco de... </p>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#" class="whiteButton goback">Volver a buscar</a>
+                </div>
+            </div>
+			<div id="tourinner">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <div class="scroll">
+					<div id="tourinner-1" class="tourinner-card">
+						<div class="ti-tourinner-id-card-head">
+							<div class="pickture"><img src="http://superiorplatform.com/pictures-of/faces/happy/01-very-happy-face.jpg"></div>
+							<div class="personal-data">
+								<div class="name">Karla Mariana Suarez Galindo</div>
+								<div class="from">Mexicana, 24</div>
+							</div>
+						</div>
+						<div class="ti-tourinner-id-card-body">
+							<div class="credentials">
+								<p>Estudié Comunicación y Antropología</p>
+								<p>Hablo Inglés, Alemán y Español</p>
+							</div>
+							<div class="description">
+								Poblana de sentimiento , llevo viviendo 10 años en esta maravillosa ciudad en la que cada edificio cuenta una historia…descubre conmigo los secretos de la época colonial, sus calles más representativas y la gente que habita la zona.
+							</div>
+						</div>
+						<div class="ti-tourinner-id-card-buttons">
+							<div class="ti-tourinner-row">
+								<div class="ti-tourinner-col-2 button-in">
+									<a href="#">IN</a>
+								</div>
+								<div class="ti-tourinner-col-2 button-next">
+									<a href="#">Siguiente</a>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+			<div id="map">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <div class="scroll">
+					
+					<div id="ti-map-map"></div>
+					<div class="ti-map-data">
+						<span></span> &nbsp; Zona segura
+					</div>
+					
+                </div>
+            </div>
+			
+			<div id="paytype">
+                <div class="toolbar">
+                    <h1>Formas de Pago</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <div class="scroll">
+					
+					<div class="ti-pay-type">
+						<h3>Efectivo</h3>
+						<a href="#">Eliminar</a>
+					</div>
+					
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+      if (window.navigator.standalone) {
+        $("meta[name='apple-mobile-web-app-status-bar-style']").remove();
+      }
+    </script>
+</html>
