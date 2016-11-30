@@ -7,11 +7,15 @@ var user = {
 		var lang = $("#rlang").val();
 		var date = $("#rbdate").val();
 		
-		if(name =! undefined && name != '' && mail != undefined && mail != '' && pass != undefined && pass != '' && coun != undefined && coun != '' && lang != undefined && lang != '' && date != undefined && date != ''){
-			alert(name);
+		
+		if(name != undefined && name != '' && mail != undefined && mail != '' && pass != undefined && pass != '' && coun != undefined && coun != '' && lang != undefined && lang != '' && date != undefined && date != ''){
 			var data = { action:'setNewUser',name:name,mail:mail,pass:pass,country:coun,languages:lang,bdate:date};
 			$.post('http://tourindigital.com/app/registro.app.php', data, function(response){
-				alert(response);
+				if(response == '1'){
+					//Guardar datos en bd interna... 
+					window.location.href = '#profile';
+				}else
+					alert('Hubo un error en el registro, intenta de nuevo.');
 			});
 		}else
 			alert("Todos los campos son requeridos");

@@ -22,10 +22,6 @@
 	
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		//archivos requeridos
-	
-		//Acceso a Base de datos
-		//$sql = new procedures();
-		//print_r($sql);
 		$register = new register($sql);
 		switch($_POST["action"]){
 			case "setNewUser":
@@ -35,9 +31,8 @@
 				$register->getLogin($_POST["mail"],$_POST["pass"]);
 				break;
 			default:
-				echo $_POST["action"].' - '.$_POST["name"];//"Error 404";
+				echo "Error 404";
 		}
-		echo "algo";
 		exit();
 	}else{
 		echo "Error 404";	
