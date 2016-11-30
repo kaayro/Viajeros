@@ -1,10 +1,31 @@
 <?php
+	require_once("procedures.sql.php");
+	class register{
+		private $sql = null;
+		public function __constructor($sql){
+		}
+		public function setNewUser($name,$mail,$pass,$country,$languages,$bdate){
+			$this->sql = new procedures();
+			if($this->sql->setNewUser($name,$mail,$pass,$country,$languages,$bdate) == "t")
+				echo 1;
+			else
+				echo 0;
+		}
+		public function getLogin($mail,$pass){
+			if($res = $this->sql->getLogin($mail,$pass)){
+				echo $res->num_row;
+			}else{
+				echo 0;
+			}
+		}
+	}
+	
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		//archivos requeridos
-		require_once("procedures.sql.php");
 	
 		//Acceso a Base de datos
-		$sql = new procedures();
+		//$sql = new procedures();
+		//print_r($sql);
 		$register = new register($sql);
 		switch($_POST["action"]){
 			case "setNewUser":
@@ -20,25 +41,5 @@
 		exit();
 	}else{
 		echo "Error 404";	
-	}
-
-	class register{
-		private $sql = null;
-		public function __constructor($sql){
-			$this->sql = $sql;
-		}
-		public function setNewUser($name,$mail,$pass,$country,$languages,$bdate){
-			if($this->sql->setNewUser($name,$mail,$pass,$country,$languages,$bdate) == "t")
-				echo 1;
-			else
-				echo 0;
-		}
-		public function getLogin($mail,$pass){
-			if($res = $this->sql->getLogin($mail,$pass)){
-				echo $res->num_row;
-			}else{
-				echo 0;
-			}
-		}
 	}
 ?>
