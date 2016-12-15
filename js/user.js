@@ -25,7 +25,8 @@ var user = {
 		var pass = $('#loginPass').val();
 		
 		if(mail != undefined && name != '' && pass != undefined && pass != ''){
-			var data ? {action:'getLogin',mail:mail,pass:pass}
+			var data = {action:'getLogin',mail:mail,pass:pass};
+			window.location.href = '#profile';
 		}else
 			alert('Todos los campos son requeridos');
 	}

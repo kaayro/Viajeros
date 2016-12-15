@@ -4,9 +4,7 @@ var app = {
 	},
 	init: function(){
 		//Login Events
-		$('#profile').on('pageAnimationStart', function(e, data) {
-    alert(data.direction); // in or out
-});
+		$(document).on('tap','#loginSend',user.getLogin);
 		//Search Events
 		$(document).on('tap','#category a.icon',app.search);
 		$(document).on('tap','#tourinner .button-next a',app.nextTourinner);
