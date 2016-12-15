@@ -21,13 +21,14 @@ var user = {
 			alert("Todos los campos son requeridos");
 	},
 	getLogin: function(){
-		var mail = $('#loginMail').val();
+		/*var mail = $('#loginMail').val();
 		var pass = $('#loginPass').val();
 		
 		if(mail != undefined && name != '' && pass != undefined && pass != ''){
 			var data = {action:'getLogin',mail:mail,pass:pass};
 			window.location.href = '#profile';
 		}else
-			alert('Todos los campos son requeridos');
+			alert('Todos los campos son requeridos');*/
+		window.location.href = '#profile';
 	}
 };
