@@ -3,6 +3,10 @@ var app = {
 		document.addEventListener("deviceready",app.init,false);
 	},
 	init: function(){
+		//Login Events
+		$('#profile').on('pageAnimationStart', function(e, data) {
+    alert(data.direction); // in or out
+});
 		//Search Events
 		$(document).on('tap','#category a.icon',app.search);
 		$(document).on('tap','#tourinner .button-next a',app.nextTourinner);
@@ -45,6 +49,7 @@ var app = {
 		});*/
 		var data = '[{"name":"Luis Romero Chilaca","country":"México","age":"39","academy":"Derecho","languages":"Francés, Inglés y Español","description":"Poblano de nacimiento y amante de la ciudad desde que tengo memoria, explorador de lugares místicos y timbero de corazón... Conoce conmigo los mejores lugares para divertirte y pasar un rato muy ameno en la ciudad.","image":"https://scontent-dfw1-1.xx.fbcdn.net/v/t1.0-9/13336103_10206646402903107_8094949296329747966_n.jpg?oh=02ae61c62b090078a73cbfdb4b2bb581&oe=5835D593"},{"name":"Carlos Celma Tavera","country":"México","age":"27","academy":"Ciencias de la Computación","languages":"Inglés y Español","description":"Poblano de nacimiento y amante de la ciudad desde que tengo memoria, explorador de lugares místicos y timbero de corazón... Conoce conmigo los mejores lugares para divertirte y pasar un rato muy ameno en la ciudad.","image":"https://s-media-cache-ak0.pinimg.com/736x/21/ef/aa/21efaa9029105fbb9a0fe6de8029a7af.jpg"},{"name":"Ana Elena Pavana","country":"México","age":"24","academy":"Comunicación y Antropología","languages":"Inglés, Alemán y Español","description":"Poblana de sentimiento , llevo viviendo 10 años en esta maravillosa ciudad en la que cada edificio cuenta una historia…descubre conmigo los secretos de la época colonial, sus calles más representativas y la gente que habita la zona.","image":"http://superiorplatform.com/pictures-of/faces/happy/01-very-happy-face.jpg"}]';
 		app.tourinnersList(JSON.parse(data));
+		return false;
 	},
 	tourinnersList: function(data){
 		//alert(data.length);
@@ -69,7 +74,7 @@ var app = {
 		$('#tourinner-'+(id+1)).show();
 	},
 	showMap: function(){
-		var latlng = new google.maps.LatLng(19.044236, -98.198010);
+		/*var latlng = new google.maps.LatLng(19.044236, -98.198010);
 		var myOptions = {
 			zoom: 15,
 			center: latlng,
@@ -117,8 +122,9 @@ var app = {
 		});
 		bermudaTriangle.setMap(map);
 		
-		window.location.href = '#map';
+		window.location.href = '#map';*/
+		window.location.href = '#thanx';
 	}
 };
 
-$(app.ready);
+$(app.init);

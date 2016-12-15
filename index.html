@@ -65,9 +65,9 @@
 					
 					
 					<ul class="edit" id="loginbox" style="">
-                        <li><input type="email" name="name" placeholder="Correo Electrónico" id="some_name"></li>
-						<li><input type="password" name="name" placeholder="Contraseña" id="some_name"></li>
-						<li><a href="#profile" style="text-align:center;font:bold 12pt Arial;background:#ff9900;color:#000;">Entrar</a></li>
+                        <li><input type="email" name="name" placeholder="Correo Electrónico" id="loginMail"></li>
+						<li><input type="password" name="name" placeholder="Contraseña" id="loginPass"></li>
+						<li><a href="#" style="text-align:center;font:bold 12pt Arial;background:#846929;color:#000;" id="loginSend">Entrar</a></li>
 						<li><a href="#register" style="text-align:center;font:bold 12pt Arial;background:#555;color:#fff;" class="slideup">Únete Grátis</a></li>
                     </ul>
                 </div>
@@ -317,20 +317,20 @@
                 </div>
                 <div class="scroll">
 					<div class="ti-profile-header" style="box-sizing:border-box;width:100%;margin-top:20px;">
-						<img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/11991_10153562018259550_5250468990927329918_n.jpg?oh=c80548cec1db844b0952a98cf936d7f1&oe=57FB7DF7" style="width:100px;height:100px;float:left;margin-left:15px;margin-top:20px;">
+						<img src="img/profile-no-photo.png" style="width:100px;height:100px;float:left;margin-left:15px;margin-top:20px;">
 						<h3 style="padding-top:50px;text-align:center;">Bienvenido</h3>
-						<input type="text" placeholder="Tu nombre" value="Carlos Celma" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:60%;">
+						<input type="text" placeholder="Tu nombre" value="Carlos Celma" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:60%;" readonly>
 						<div style="clear:both;"></div>
 					</div>
                     <div class="ti-search" style="margin-top:50px;">
 						<ul class="individual">
-							<li><a href="#category">Buscar</a></li>
+							<li><a href="#promo1">Descuentos</a></li>
 							<li><a href="#booking">Reservar</a></li>
 						</ul>
 					</div>
 					<div class="ti-profile-data" style="margin-top:50px;">
-						<div><input type="text" value="Mexico" placeholder="¿De dónde eres?" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:100%;"></div>
-						<div><input type="text" value="Español,Inglés" placeholder="¿Qué idiomas hablas?" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:100%;"></div>
+						<div><input type="text" value="Mexico" placeholder="¿De dónde eres?" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:100%;" readonly></div>
+						<div><input type="text" value="Español,Inglés" placeholder="¿Qué idiomas hablas?" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:100%;" readonly></div>
 					</div>
 					<div class="ti-profile-credit-data">
 						<a href="#paytype" class="slideup">Formas de pago</a>
@@ -344,17 +344,48 @@
                 </div>
                 <form class="scroll">
 					<ul class="edit rounded" style="">
-                        <li><input type="date" name="date_book" placeholder="Fecha" id="date_book"></li>
-						<li><input type="time" name="hour_book" placeholder="Hora" id="hour_book"></li>
-						<li class="arrow"><select id="place_book">
+                        <li>Fecha: <input type="date" name="date_book" placeholder="Fecha" id="date_book"></li>
+						<li>Hora: <input type="time" name="hour_book" placeholder="Hora" id="hour_book"></li>
+						<li class="arrow">
+							<select id="place_book">
 								<option value="">Lugar</option>
 								<option value="1">Cholula</option>
 								<option value="2">Puebla</option>
 								<option value="3">Tlaxcala</option>
 							</select></li>
-						<li><a href="#category" style="text-align:center;font:bold 12pt Arial;background:#ff9900;color:#000;">Reservar</a></li>
+						<li><a href="#category" style="text-align:center;font:bold 12pt Arial;background:#846929;color:#000;">Reservar</a></li>
                     </ul>
                 </form>
+            </div>
+			<div id="promo1">
+                <div class="toolbar">
+                    <h3>50% de Descuento</h3>
+                </div>
+                <div class="scroll">
+					<img src="img/promo1.jpg" style="width:100%;">
+					<div class="ti-search">
+						<ul class="individual">
+							<li><a href="#">Atrás</a></li>
+							<li><a href="#promo2">Siguiente</a></li>
+						</ul>
+					</div>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#profile" class="whiteButton">Cerrar</a>
+                </div>
+            </div>
+			<div id="promo2">
+                <div class="toolbar">
+                    <h3>10% de Descuento</h3>
+                </div>
+                <div class="scroll">
+					<img src="img/promo1.jpg" style="width:100%;">
+					<div class="ti-search">
+						<ul class="individual">
+							<li><a href="#promo1">Atrás</a></li>
+							<li><a href="#promo3">Siguiente</a></li>
+						</ul>
+					</div>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#profile" class="whiteButton">Cerrar</a>
+                </div>
             </div>
 			<div id="category">
                 <div class="toolbar">
@@ -474,7 +505,19 @@
 					
                 </div>
             </div>
-			
+			<div id="thanx">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+					<a class="" href="#profile">Cerrar</a>
+                </div>
+                <div class="scroll">
+					
+					<h2>Gracias</h2>
+					<h4>Tu reserva fue hecha</h4>
+					
+                </div>
+            </div>
+
 			<div id="paytype">
                 <div class="toolbar">
                     <h1>Formas de Pago</h1>

@@ -19,5 +19,14 @@ var user = {
 			});
 		}else
 			alert("Todos los campos son requeridos");
+	},
+	getLogin: function(){
+		var mail = $('#loginMail').val();
+		var pass = $('#loginPass').val();
+		
+		if(mail != undefined && name != '' && pass != undefined && pass != ''){
+			var data ? {action:'getLogin',mail:mail,pass:pass}
+		}else
+			alert('Todos los campos son requeridos');
 	}
 };
